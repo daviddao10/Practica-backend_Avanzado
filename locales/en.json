@@ -1,0 +1,18 @@
+{
+	"Lista de anuncios": "announcement list",
+	"nombre": "name",
+	"venta": "sale",
+	"precio": "price",
+	"Foto": "photo",
+	"Tags": "Tags",
+	"Id": "Id",
+	"listado": "list",
+	"de": "of",
+	"Ejemplos:": "Example:",
+	"Todos (max. 1000)": "All (max. 1000)",
+	"Paginado": "paginated",
+	"Ordenado por precio ascendente": "Sort by price ascending",
+	"Ordenado por precio descendente": "Sort by price falling",
+	"Con tag mobile": "With tag mobile",
+	"Volver a la home": "return home"
+}
