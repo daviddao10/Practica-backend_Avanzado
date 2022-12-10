@@ -8,6 +8,10 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const i18n = require('./lib/i18nConfigure')
 
+const sessionAuth = require('./lib/sesssionAuthMiddleware');
+const LoginController = require('./routes/LoginController')
+
+const jwtAuthMiddleware = require('./lib/jwtAuthMiddleware');
 const { isAPI } = require('./lib/utils');
 require('./models'); // Connect DB & register models
 
@@ -33,6 +37,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(i18n.init);
+const loginController = new LoginController();
 
 /**
  * Website routes
@@ -40,11 +45,19 @@ app.use(i18n.init);
 app.use('/', require('./routes/index'));
 app.use('/change-locale', require('./routes/change-locale'));
 app.use('/anuncios', require('./routes/anuncios'));
+app.use('/logiago',(req,res,next)=>{
+  res.render('logiado')
+})
+
+//login
+app.get('/login',loginController.index );
+app.post('/login',loginController.post );
 
 /**
  * API v1 routes
  */
-app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
+app.use('/apiv1/anuncios', jwtAuthMiddleware ,require('./routes/apiv1/anuncios'));
+app.use('/api/login',   loginController.postJwt);
 
 /**
  * Error handlers

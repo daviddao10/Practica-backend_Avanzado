@@ -14,5 +14,6 @@
 	"Ordenado por precio ascendente": "Sort by price ascending",
 	"Ordenado por precio descendente": "Sort by price falling",
 	"Con tag mobile": "With tag mobile",
-	"Volver a la home": "return home"
+	"Volver a la home": "return home",
+	"Invalid credentials": "Invalid credentials"
 }
